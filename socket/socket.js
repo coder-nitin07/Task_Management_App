@@ -1,4 +1,3 @@
-// socket/socket.js
 const socketIO = require('socket.io');
 const http = require('http');
 
@@ -6,10 +5,9 @@ let io;
 let server;
 
 function initSocket(app) {
-    server = http.createServer(app);      // Attach express app to server
-    io = socketIO(server);                // Attach socket.io to that server
+    server = http.createServer(app);
+    io = socketIO(server);
 
-    // Optional: handle global socket events here if needed
     io.on('connection', (socket) => {
         console.log('A user connected');
 
