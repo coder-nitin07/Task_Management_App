@@ -25,14 +25,11 @@ app.use('/api', routerAnaly);
 // Initialize socket with app
 const { io, server } = initSocket(app);
 
-// Set up Socket.IO event listeners (example)
 io.on('connection', (socket) => {
     console.log('A user connected');
 
-    // Emitting a test event when a user connects
     socket.emit('taskCreated', { title: "Test Task", description: "This is a test task." });
 
-    // You can listen for any events here, like 'taskCreated'
     socket.on('taskCreated', (task) => {
         console.log('Task created:', task);
     });
